@@ -344,6 +344,10 @@ h6, .h6 {
   font-weight: 300;
   line-height: 1.2; }
 
+.fix-pad{
+  padding: 8em 0 0 0 !important;
+}
+
 hr {
   margin-top: 1rem;
   margin-bottom: 1rem;
@@ -9385,7 +9389,7 @@ textarea.form-control {
   position: relative; }
 
 .heading-section h2 {
-  font-size: 36px;
+  font-size: 32px;
   font-weight: 900;
   text-transform: uppercase; }
   @media (max-width: 767.98px) {
