@@ -57,6 +57,12 @@
 				<div class="col-md-12 d-flex ftco-animate">
 					<!-- Aqui poner imagens y explicación.-->
 					<div class="container">
+					<div class="row">
+						<div class="col-1"></div>
+						<div class="col"><p style="color: black;">Un histograma de tonalidad es una representación gráfica de la distribución tonal de una imagen. Traza el número de píxeles para cada valor tonal de la imagen, el eje horizontal del histograma representa las variaciones tonales que van de negro a blanco en el sentido de izquierda a derecha, mientras que el eje vertical representa el número total de píxeles en ese tono en particular.</p>
+						</div>
+						<div class="col-1"></div>
+					</div>	
 					<div class="row" style="margin-bottom: 10px;">
 						<div class="col-1"></div>
 						<div class="col"><img src="images/histograma.jpg" width="800" height="265" ></div>
@@ -64,21 +70,22 @@
 					</div>
 					<div class="row">
 						<div class="col-1"></div>
-						<div class="col"><p style="color: black;">Un histograma de tonalidad es una representación gráfica de la distribución tonal de una imagen. Traza el número de píxeles para cada valor tonal de la imagen, el eje horizontal del histograma representa las variaciones tonales que van de negro a blanco en el sentido de izquierda a derecha, mientras que el eje vertical representa el número total de píxeles en ese tono en particular.</p>
+						<div class="col"><p style="color: black;">Para calcular el histograma de tonalidad de esta imagen se realizaron 3 pasos, inicialmente se pasó a escala de grises la imagen original, luego se hizo un barrido de toda la imagen pixel por pixel, en cada pixel se capturo el valor de su tonalidad y se fue acumulando en un arreglo con tamaño de 255 (Teniendo en cuenta que 0 es blanco y negro 255), al obtener el acumulativo de cada tonalidad RGB, se procedió a generar un número de líneas igual al tamaño al arreglo de izquierda a derecha con un tamaño proporcional al acumulado de cada tono.</p>
 						</div>
 						<div class="col-1"></div>
-						</div>
+					</div>					
 					<div class="row" style="margin-bottom: 10px;">
 						<div class="col-1"></div>
 						<div class="col"><img src="images/histogramabn.jpg" width="800" height="265" ></div>
 						<div class="col-1"></div>
-					</div>		
+					</div>	
 					<div class="row">
 						<div class="col-1"></div>
-						<div class="col"><p style="color: black;">Para calcular el histograma de tonalidad de esta imagen se realizaron 3 pasos, inicialmente se pasó a escala de grises la imagen original, luego se hizo un barrido de toda la imagen pixel por pixel, en cada pixel se capturo el valor de su tonalidad y se fue acumulando en un arreglo con tamaño de 255 (Teniendo en cuenta que 0 es blanco y negro 255), al obtener el acumulativo de cada tonalidad RGB, se procedió a generar un número de líneas igual al tamaño al arreglo de izquierda a derecha con un tamaño proporcional al acumulado de cada tono.</p>
+						<div class="col"><p style="color: black;">Como se puede observar el histograma resalta que la mayoría de los tonos tienden a ser de tonalidad negra, por lo cual el histograma se acumula más hacia a la izquierda, sin embargo, la imagen maneja varios tonos claros, los cuales esta distribuidos proporcionalmente hacia la derecha.</p>
 						</div>
 						<div class="col-1"></div>
 					</div>	
+						
 				</div>
 					
 					
