@@ -25309,8 +25309,8 @@
               }
 
               /* --------------------------------------------------- *
-	 * -- uninitialized global data (static structures) -- *
-	 * --------------------------------------------------- */
+     * -- uninitialized global data (static structures) -- *
+     * --------------------------------------------------- */
 
               var sltree = new Tree();
               var sdtree = new Tree();
@@ -25351,8 +25351,8 @@
               var lengths = new Uint8Array(288 + 32);
 
               /* ----------------------- *
-	 * -- utility functions -- *
-	 * ----------------------- */
+     * -- utility functions -- *
+     * ----------------------- */
 
               /* build extra bits and base tables */
               function tinf_build_bits_base(bits, base, delta, first) {
@@ -25444,8 +25444,8 @@
               }
 
               /* ---------------------- *
-	 * -- decode functions -- *
-	 * ---------------------- */
+     * -- decode functions -- *
+     * ---------------------- */
 
               /* get one bit from source stream */
               function tinf_getbit(d) {
@@ -25573,8 +25573,8 @@
               }
 
               /* ----------------------------- *
-	 * -- block inflate functions -- *
-	 * ----------------------------- */
+     * -- block inflate functions -- *
+     * ----------------------------- */
 
               /* given a stream and two trees, inflate a block of data */
               function tinf_inflate_block_data(d, lt, dt) {
@@ -25695,8 +25695,8 @@
               }
 
               /* -------------------- *
-	 * -- initialization -- *
-	 * -------------------- */
+     * -- initialization -- *
+     * -------------------- */
 
               /* build fixed huffman trees */
               tinf_build_fixed_trees(sltree, sdtree);
@@ -26673,43 +26673,43 @@
                 // Python: 'mac_croatian'
                 'x-mac-croatian':
                   'ÄÅÇÉÑÖÜáàâäãåçéèêëíìîïñóòôöõúùûü†°¢£§•¶ß®Š™´¨≠ŽØ∞±≤≥∆µ∂∑∏š∫ªºΩžø' +
-                  '¿¡¬√ƒ≈Ć«Č… ÀÃÕŒœĐ—“”‘’÷◊©⁄€‹›Æ»–·‚„‰ÂćÁčÈÍÎÏÌÓÔđÒÚÛÙıˆ˜¯πË˚¸Êæˇ',
+                  '¿¡¬√ƒ≈Ć«Č… ÀÃÕŒœĐ—“”‘’÷◊©⁄€‹›Æ»–·‚„‰ÂćÁčÈÍÎÏÌÓÔđÒÚÛÙıˆ˜¯πË˚¸Êæˇ',
                 // Python: 'mac_cyrillic'
                 'x-mac-cyrillic':
                   'АБВГДЕЖЗИЙКЛМНОПРСТУФХЦЧШЩЪЫЬЭЮЯ†°Ґ£§•¶І®©™Ђђ≠Ѓѓ∞±≤≥іµґЈЄєЇїЉљЊњ' +
-                  'јЅ¬√ƒ≈∆«»… ЋћЌќѕ–—“”‘’÷„ЎўЏџ№Ёёяабвгдежзийклмнопрстуфхцчшщъыьэю',
+                  'јЅ¬√ƒ≈∆«»… ЋћЌќѕ–—“”‘’÷„ЎўЏџ№Ёёяабвгдежзийклмнопрстуфхцчшщъыьэю',
                 // http://unicode.org/Public/MAPPINGS/VENDORS/APPLE/GAELIC.TXT
                 'x-mac-gaelic':
                   'ÄÅÇÉÑÖÜáàâäãåçéèêëíìîïñóòôöõúùûü†°¢£§•¶ß®©™´¨≠ÆØḂ±≤≥ḃĊċḊḋḞḟĠġṀæø' +
-                  'ṁṖṗɼƒſṠ«»… ÀÃÕŒœ–—“”‘’ṡẛÿŸṪ€‹›Ŷŷṫ·Ỳỳ⁊ÂÊÁËÈÍÎÏÌÓÔ♣ÒÚÛÙıÝýŴŵẄẅẀẁẂẃ',
+                  'ṁṖṗɼƒſṠ«»… ÀÃÕŒœ–—“”‘’ṡẛÿŸṪ€‹›Ŷŷṫ·Ỳỳ⁊ÂÊÁËÈÍÎÏÌÓÔ♣ÒÚÛÙıÝýŴŵẄẅẀẁẂẃ',
                 // Python: 'mac_greek'
                 'x-mac-greek':
                   'Ä¹²É³ÖÜ΅àâä΄¨çéèêë£™îï•½‰ôö¦€ùûü†ΓΔΘΛΞΠß®©ΣΪ§≠°·Α±≤≥¥ΒΕΖΗΙΚΜΦΫΨΩ' +
-                  'άΝ¬ΟΡ≈Τ«»… ΥΧΆΈœ–―“”‘’÷ΉΊΌΎέήίόΏύαβψδεφγηιξκλμνοπώρστθωςχυζϊϋΐΰ\u00AD',
+                  'άΝ¬ΟΡ≈Τ«»… ΥΧΆΈœ–―“”‘’÷ΉΊΌΎέήίόΏύαβψδεφγηιξκλμνοπώρστθωςχυζϊϋΐΰ\u00AD',
                 // Python: 'mac_iceland'
                 'x-mac-icelandic':
                   'ÄÅÇÉÑÖÜáàâäãåçéèêëíìîïñóòôöõúùûüÝ°¢£§•¶ß®©™´¨≠ÆØ∞±≤≥¥µ∂∑∏π∫ªºΩæø' +
-                  '¿¡¬√ƒ≈∆«»… ÀÃÕŒœ–—“”‘’÷◊ÿŸ⁄€ÐðÞþý·‚„‰ÂÊÁËÈÍÎÏÌÓÔÒÚÛÙıˆ˜¯˘˙˚¸˝˛ˇ',
+                  '¿¡¬√ƒ≈∆«»… ÀÃÕŒœ–—“”‘’÷◊ÿŸ⁄€ÐðÞþý·‚„‰ÂÊÁËÈÍÎÏÌÓÔÒÚÛÙıˆ˜¯˘˙˚¸˝˛ˇ',
                 // http://unicode.org/Public/MAPPINGS/VENDORS/APPLE/INUIT.TXT
                 'x-mac-inuit':
                   'ᐃᐄᐅᐆᐊᐋᐱᐲᐳᐴᐸᐹᑉᑎᑏᑐᑑᑕᑖᑦᑭᑮᑯᑰᑲᑳᒃᒋᒌᒍᒎᒐᒑ°ᒡᒥᒦ•¶ᒧ®©™ᒨᒪᒫᒻᓂᓃᓄᓅᓇᓈᓐᓯᓰᓱᓲᓴᓵᔅᓕᓖᓗ' +
-                  'ᓘᓚᓛᓪᔨᔩᔪᔫᔭ… ᔮᔾᕕᕖᕗ–—“”‘’ᕘᕙᕚᕝᕆᕇᕈᕉᕋᕌᕐᕿᖀᖁᖂᖃᖄᖅᖏᖐᖑᖒᖓᖔᖕᙱᙲᙳᙴᙵᙶᖖᖠᖡᖢᖣᖤᖥᖦᕼŁł',
+                  'ᓘᓚᓛᓪᔨᔩᔪᔫᔭ… ᔮᔾᕕᕖᕗ–—“”‘’ᕘᕙᕚᕝᕆᕇᕈᕉᕋᕌᕐᕿᖀᖁᖂᖃᖄᖅᖏᖐᖑᖒᖓᖔᖕᙱᙲᙳᙴᙵᙶᖖᖠᖡᖢᖣᖤᖥᖦᕼŁł',
                 // Python: 'mac_latin2'
                 'x-mac-ce':
                   'ÄĀāÉĄÖÜáąČäčĆćéŹźĎíďĒēĖóėôöõúĚěü†°Ę£§•¶ß®©™ę¨≠ģĮįĪ≤≥īĶ∂∑łĻļĽľĹĺŅ' +
-                  'ņŃ¬√ńŇ∆«»… ňŐÕőŌ–—“”‘’÷◊ōŔŕŘ‹›řŖŗŠ‚„šŚśÁŤťÍŽžŪÓÔūŮÚůŰűŲųÝýķŻŁżĢˇ',
+                  'ņŃ¬√ńŇ∆«»… ňŐÕőŌ–—“”‘’÷◊ōŔŕŘ‹›řŖŗŠ‚„šŚśÁŤťÍŽžŪÓÔūŮÚůŰűŲųÝýķŻŁżĢˇ',
                 // Python: 'mac_roman'
                 macintosh:
                   'ÄÅÇÉÑÖÜáàâäãåçéèêëíìîïñóòôöõúùûü†°¢£§•¶ß®©™´¨≠ÆØ∞±≤≥¥µ∂∑∏π∫ªºΩæø' +
-                  '¿¡¬√ƒ≈∆«»… ÀÃÕŒœ–—“”‘’÷◊ÿŸ⁄€‹›ﬁﬂ‡·‚„‰ÂÊÁËÈÍÎÏÌÓÔÒÚÛÙıˆ˜¯˘˙˚¸˝˛ˇ',
+                  '¿¡¬√ƒ≈∆«»… ÀÃÕŒœ–—“”‘’÷◊ÿŸ⁄€‹›ﬁﬂ‡·‚„‰ÂÊÁËÈÍÎÏÌÓÔÒÚÛÙıˆ˜¯˘˙˚¸˝˛ˇ',
                 // Python: 'mac_romanian'
                 'x-mac-romanian':
                   'ÄÅÇÉÑÖÜáàâäãåçéèêëíìîïñóòôöõúùûü†°¢£§•¶ß®©™´¨≠ĂȘ∞±≤≥¥µ∂∑∏π∫ªºΩăș' +
-                  '¿¡¬√ƒ≈∆«»… ÀÃÕŒœ–—“”‘’÷◊ÿŸ⁄€‹›Țț‡·‚„‰ÂÊÁËÈÍÎÏÌÓÔÒÚÛÙıˆ˜¯˘˙˚¸˝˛ˇ',
+                  '¿¡¬√ƒ≈∆«»… ÀÃÕŒœ–—“”‘’÷◊ÿŸ⁄€‹›Țț‡·‚„‰ÂÊÁËÈÍÎÏÌÓÔÒÚÛÙıˆ˜¯˘˙˚¸˝˛ˇ',
                 // Python: 'mac_turkish'
                 'x-mac-turkish':
                   'ÄÅÇÉÑÖÜáàâäãåçéèêëíìîïñóòôöõúùûü†°¢£§•¶ß®©™´¨≠ÆØ∞±≤≥¥µ∂∑∏π∫ªºΩæø' +
-                  '¿¡¬√ƒ≈∆«»… ÀÃÕŒœ–—“”‘’÷◊ÿŸĞğİıŞş‡·‚„‰ÂÊÁËÈÍÎÏÌÓÔÒÚÛÙˆ˜¯˘˙˚¸˝˛ˇ'
+                  '¿¡¬√ƒ≈∆«»… ÀÃÕŒœ–—“”‘’÷◊ÿŸĞğİıŞş‡·‚„‰ÂÊÁËÈÍÎÏÌÓÔÒÚÛÙˆ˜¯˘˙˚¸˝˛ˇ'
               };
 
               /**
@@ -35284,32 +35284,32 @@
               var glyf = { getPath: getPath, parse: parseGlyfTable };
 
               /* A TrueType font hinting interpreter.
-	*
-	* (c) 2017 Axel Kittenberger
-	*
-	* This interpreter has been implemented according to this documentation:
-	* https://developer.apple.com/fonts/TrueType-Reference-Manual/RM05/Chap5.html
-	*
-	* According to the documentation F24DOT6 values are used for pixels.
-	* That means calculation is 1/64 pixel accurate and uses integer operations.
-	* However, Javascript has floating point operations by default and only
-	* those are available. One could make a case to simulate the 1/64 accuracy
-	* exactly by truncating after every division operation
-	* (for example with << 0) to get pixel exactly results as other TrueType
-	* implementations. It may make sense since some fonts are pixel optimized
-	* by hand using DELTAP instructions. The current implementation doesn't
-	* and rather uses full floating point precision.
-	*
-	* xScale, yScale and rotation is currently ignored.
-	*
-	* A few non-trivial instructions are missing as I didn't encounter yet
-	* a font that used them to test a possible implementation.
-	*
-	* Some fonts seem to use undocumented features regarding the twilight zone.
-	* Only some of them are implemented as they were encountered.
-	*
-	* The exports.DEBUG statements are removed on the minified distribution file.
-	*/
+    *
+    * (c) 2017 Axel Kittenberger
+    *
+    * This interpreter has been implemented according to this documentation:
+    * https://developer.apple.com/fonts/TrueType-Reference-Manual/RM05/Chap5.html
+    *
+    * According to the documentation F24DOT6 values are used for pixels.
+    * That means calculation is 1/64 pixel accurate and uses integer operations.
+    * However, Javascript has floating point operations by default and only
+    * those are available. One could make a case to simulate the 1/64 accuracy
+    * exactly by truncating after every division operation
+    * (for example with << 0) to get pixel exactly results as other TrueType
+    * implementations. It may make sense since some fonts are pixel optimized
+    * by hand using DELTAP instructions. The current implementation doesn't
+    * and rather uses full floating point precision.
+    *
+    * xScale, yScale and rotation is currently ignored.
+    *
+    * A few non-trivial instructions are missing as I didn't encounter yet
+    * a font that used them to test a possible implementation.
+    *
+    * Some fonts seem to use undocumented features regarding the twilight zone.
+    * Only some of them are implemented as they were encountered.
+    *
+    * The exports.DEBUG statements are removed on the minified distribution file.
+    */
 
               var instructionTable;
               var exec;
@@ -35317,11 +35317,11 @@
               var execComponent;
 
               /*
-	* Creates a hinting object.
-	*
-	* There ought to be exactly one
-	* for each truetype font that is used for hinting.
-	*/
+    * Creates a hinting object.
+    *
+    * There ought to be exactly one
+    * for each truetype font that is used for hinting.
+    */
               function Hinting(font) {
                 // the font this hinting object is for
                 this.font = font;
@@ -35344,51 +35344,51 @@
               }
 
               /*
-	* Not rounding.
-	*/
+    * Not rounding.
+    */
               function roundOff(v) {
                 return v;
               }
 
               /*
-	* Rounding to grid.
-	*/
+    * Rounding to grid.
+    */
               function roundToGrid(v) {
                 //Rounding in TT is supposed to "symmetrical around zero"
                 return Math.sign(v) * Math.round(Math.abs(v));
               }
 
               /*
-	* Rounding to double grid.
-	*/
+    * Rounding to double grid.
+    */
               function roundToDoubleGrid(v) {
                 return Math.sign(v) * Math.round(Math.abs(v * 2)) / 2;
               }
 
               /*
-	* Rounding to half grid.
-	*/
+    * Rounding to half grid.
+    */
               function roundToHalfGrid(v) {
                 return Math.sign(v) * (Math.round(Math.abs(v) + 0.5) - 0.5);
               }
 
               /*
-	* Rounding to up to grid.
-	*/
+    * Rounding to up to grid.
+    */
               function roundUpToGrid(v) {
                 return Math.sign(v) * Math.ceil(Math.abs(v));
               }
 
               /*
-	* Rounding to down to grid.
-	*/
+    * Rounding to down to grid.
+    */
               function roundDownToGrid(v) {
                 return Math.sign(v) * Math.floor(Math.abs(v));
               }
 
               /*
-	* Super rounding.
-	*/
+    * Super rounding.
+    */
               var roundSuper = function(v) {
                 var period = this.srPeriod;
                 var phase = this.srPhase;
@@ -35415,8 +35415,8 @@
               };
 
               /*
-	* Unit vector of x-axis.
-	*/
+    * Unit vector of x-axis.
+    */
               var xUnitVector = {
                 x: 1,
 
@@ -35525,8 +35525,8 @@
               };
 
               /*
-	* Unit vector of y-axis.
-	*/
+    * Unit vector of y-axis.
+    */
               var yUnitVector = {
                 x: 0,
 
@@ -35638,8 +35638,8 @@
               Object.freeze(yUnitVector);
 
               /*
-	* Creates a unit vector that is not x- or y-axis.
-	*/
+    * Creates a unit vector that is not x- or y-axis.
+    */
               function UnitVector(x, y) {
                 this.x = x;
                 this.y = y;
@@ -35650,9 +35650,9 @@
               }
 
               /*
-	* Gets the projected distance between two points.
-	* o1/o2 ... if true, respective original position is used.
-	*/
+    * Gets the projected distance between two points.
+    * o1/o2 ... if true, respective original position is used.
+    */
               UnitVector.prototype.distance = function(p1, p2, o1, o2) {
                 return (
                   this.x * xUnitVector.distance(p1, p2, o1, o2) +
@@ -35661,12 +35661,12 @@
               };
 
               /*
-	* Moves point p so the moved position has the same relative
-	* position to the moved positions of rp1 and rp2 than the
-	* original positions had.
-	*
-	* See APPENDIX on INTERPOLATE at the bottom of this file.
-	*/
+    * Moves point p so the moved position has the same relative
+    * position to the moved positions of rp1 and rp2 than the
+    * original positions had.
+    *
+    * See APPENDIX on INTERPOLATE at the bottom of this file.
+    */
               UnitVector.prototype.interpolate = function(p, rp1, rp2, pv) {
                 var dm1;
                 var dm2;
@@ -35693,17 +35693,17 @@
               };
 
               /*
-	* Sets the point 'p' relative to point 'rp'
-	* by the distance 'd'
-	*
-	* See APPENDIX on SETRELATIVE at the bottom of this file.
-	*
-	* p   ...  point to set
-	* rp  ... reference point
-	* d   ... distance on projection vector
-	* pv  ... projection vector (undefined = this)
-	* org ... if true, uses the original position of rp as reference.
-	*/
+    * Sets the point 'p' relative to point 'rp'
+    * by the distance 'd'
+    *
+    * See APPENDIX on SETRELATIVE at the bottom of this file.
+    *
+    * p   ...  point to set
+    * rp  ... reference point
+    * d   ... distance on projection vector
+    * pv  ... projection vector (undefined = this)
+    * org ... if true, uses the original position of rp as reference.
+    */
               UnitVector.prototype.setRelative = function(p, rp, d, pv, org) {
                 pv = pv || this;
 
@@ -35723,16 +35723,16 @@
               };
 
               /*
-	* Touches the point p.
-	*/
+    * Touches the point p.
+    */
               UnitVector.prototype.touch = function(p) {
                 p.xTouched = true;
                 p.yTouched = true;
               };
 
               /*
-	* Returns a unit vector with x/y coordinates.
-	*/
+    * Returns a unit vector with x/y coordinates.
+    */
               function getUnitVector(x, y) {
                 var d = Math.sqrt(x * x + y * y);
 
@@ -35749,8 +35749,8 @@
               }
 
               /*
-	* Creates a point in the hinting engine.
-	*/
+    * Creates a point in the hinting engine.
+    */
               function HPoint(x, y, lastPointOfContour, onCurve) {
                 this.x = this.xo = Math.round(x * 64) / 64; // hinted x value and original x-value
                 this.y = this.yo = Math.round(y * 64) / 64; // hinted y value and original y-value
@@ -35766,10 +35766,10 @@
               }
 
               /*
-	* Returns the next touched point on the contour.
-	*
-	* v  ... unit vector to test touch axis.
-	*/
+    * Returns the next touched point on the contour.
+    *
+    * v  ... unit vector to test touch axis.
+    */
               HPoint.prototype.nextTouched = function(v) {
                 var p = this.nextPointOnContour;
 
@@ -35781,10 +35781,10 @@
               };
 
               /*
-	* Returns the previous touched point on the contour
-	*
-	* v  ... unit vector to test touch axis.
-	*/
+    * Returns the previous touched point on the contour
+    *
+    * v  ... unit vector to test touch axis.
+    */
               HPoint.prototype.prevTouched = function(v) {
                 var p = this.prevPointOnContour;
 
@@ -35796,18 +35796,18 @@
               };
 
               /*
-	* The zero point.
-	*/
+    * The zero point.
+    */
               var HPZero = Object.freeze(new HPoint(0, 0));
 
               /*
-	* The default state of the interpreter.
-	*
-	* Note: Freezing the defaultState and then deriving from it
-	* makes the V8 Javascript engine going awkward,
-	* so this is avoided, albeit the defaultState shouldn't
-	* ever change.
-	*/
+    * The default state of the interpreter.
+    *
+    * Note: Freezing the defaultState and then deriving from it
+    * makes the V8 Javascript engine going awkward,
+    * so this is avoided, albeit the defaultState shouldn't
+    * ever change.
+    */
               var defaultState = {
                 cvCutIn: 17 / 16, // control value cut in
                 deltaBase: 9,
@@ -35818,11 +35818,11 @@
               };
 
               /*
-	* The current state of the interpreter.
-	*
-	* env  ... 'fpgm' or 'prep' or 'glyf'
-	* prog ... the program
-	*/
+    * The current state of the interpreter.
+    *
+    * env  ... 'fpgm' or 'prep' or 'glyf'
+    * prog ... the program
+    */
               function State(env, prog) {
                 this.env = env;
                 this.stack = [];
@@ -35840,15 +35840,15 @@
               }
 
               /*
-	* Executes a glyph program.
-	*
-	* This does the hinting for each glyph.
-	*
-	* Returns an array of moved points.
-	*
-	* glyph: the glyph to hint
-	* ppem: the size the glyph is rendered for
-	*/
+    * Executes a glyph program.
+    *
+    * This does the hinting for each glyph.
+    *
+    * Returns an array of moved points.
+    *
+    * glyph: the glyph to hint
+    * ppem: the size the glyph is rendered for
+    */
               Hinting.prototype.exec = function(glyph, ppem) {
                 if (typeof ppem !== 'number') {
                   throw new Error('Point size is not a number!');
@@ -35943,8 +35943,8 @@
               };
 
               /*
-	* Executes the hinting program for a glyph.
-	*/
+    * Executes the hinting program for a glyph.
+    */
               execGlyph = function(glyph, prepState) {
                 // original point positions
                 var xScale = prepState.ppem / prepState.font.unitsPerEm;
@@ -36029,9 +36029,9 @@
               };
 
               /*
-	* Executes the hinting program for a component of a multi-component glyph
-	* or of the glyph itself for a non-component glyph.
-	*/
+    * Executes the hinting program for a component of a multi-component glyph
+    * or of the glyph itself for a non-component glyph.
+    */
               execComponent = function(glyph, state, xScale, yScale) {
                 var points = glyph.points || [];
                 var pLen = points.length;
@@ -36105,8 +36105,8 @@
               };
 
               /*
-	* Executes the program loaded in state.
-	*/
+    * Executes the program loaded in state.
+    */
               exec = function(state) {
                 var prog = state.prog;
 
@@ -36133,54 +36133,54 @@
 
                   // very extensive debugging for each step
                   /*
-	        if (exports.DEBUG) {
-	            var da;
-	            if (state.gZone) {
-	                da = [];
-	                for (let i = 0; i < state.gZone.length; i++)
-	                {
-	                    da.push(i + ' ' +
-	                        state.gZone[i].x * 64 + ' ' +
-	                        state.gZone[i].y * 64 + ' ' +
-	                        (state.gZone[i].xTouched ? 'x' : '') +
-	                        (state.gZone[i].yTouched ? 'y' : '')
-	                    );
-	                }
-	                console.log('GZ', da);
-	            }
+            if (exports.DEBUG) {
+                var da;
+                if (state.gZone) {
+                    da = [];
+                    for (let i = 0; i < state.gZone.length; i++)
+                    {
+                        da.push(i + ' ' +
+                            state.gZone[i].x * 64 + ' ' +
+                            state.gZone[i].y * 64 + ' ' +
+                            (state.gZone[i].xTouched ? 'x' : '') +
+                            (state.gZone[i].yTouched ? 'y' : '')
+                        );
+                    }
+                    console.log('GZ', da);
+                }
 
-	            if (state.tZone) {
-	                da = [];
-	                for (let i = 0; i < state.tZone.length; i++) {
-	                    da.push(i + ' ' +
-	                        state.tZone[i].x * 64 + ' ' +
-	                        state.tZone[i].y * 64 + ' ' +
-	                        (state.tZone[i].xTouched ? 'x' : '') +
-	                        (state.tZone[i].yTouched ? 'y' : '')
-	                    );
-	                }
-	                console.log('TZ', da);
-	            }
+                if (state.tZone) {
+                    da = [];
+                    for (let i = 0; i < state.tZone.length; i++) {
+                        da.push(i + ' ' +
+                            state.tZone[i].x * 64 + ' ' +
+                            state.tZone[i].y * 64 + ' ' +
+                            (state.tZone[i].xTouched ? 'x' : '') +
+                            (state.tZone[i].yTouched ? 'y' : '')
+                        );
+                    }
+                    console.log('TZ', da);
+                }
 
-	            if (state.stack.length > 10) {
-	                console.log(
-	                    state.stack.length,
-	                    '...', state.stack.slice(state.stack.length - 10)
-	                );
-	            } else {
-	                console.log(state.stack.length, state.stack);
-	            }
-	        }
-	        */
+                if (state.stack.length > 10) {
+                    console.log(
+                        state.stack.length,
+                        '...', state.stack.slice(state.stack.length - 10)
+                    );
+                } else {
+                    console.log(state.stack.length, state.stack);
+                }
+            }
+            */
                 }
               };
 
               /*
-	* Initializes the twilight zone.
-	*
-	* This is only done if a SZPx instruction
-	* refers to the twilight zone.
-	*/
+    * Initializes the twilight zone.
+    *
+    * This is only done if a SZPx instruction
+    * refers to the twilight zone.
+    */
               function initTZone(state) {
                 var tZone = (state.tZone = new Array(state.gZone.length));
 
@@ -36191,9 +36191,9 @@
               }
 
               /*
-	* Skips the instruction pointer ahead over an IF/ELSE block.
-	* handleElse .. if true breaks on matching ELSE
-	*/
+    * Skips the instruction pointer ahead over an IF/ELSE block.
+    * handleElse .. if true breaks on matching ELSE
+    */
               function skip(state, handleElse) {
                 var prog = state.prog;
                 var ip = state.ip;
@@ -36230,8 +36230,8 @@
               }
 
               /*----------------------------------------------------------*
-	*          And then a lot of instructions...                *
-	*----------------------------------------------------------*/
+    *          And then a lot of instructions...                *
+    *----------------------------------------------------------*/
 
               // SVTCA[a] Set freedom and projection Vectors To Coordinate Axis
               // 0x00-0x01
@@ -38124,8 +38124,8 @@
               }
 
               /*
-	* The instruction table.
-	*/
+    * The instruction table.
+    */
               instructionTable = [
                 /* 0x00 */ SVTCA.bind(undefined, yUnitVector),
                 /* 0x01 */ SVTCA.bind(undefined, xUnitVector),
@@ -38386,237 +38386,237 @@
               ];
 
               /*****************************
-	  Mathematical Considerations
-	******************************
-
-	fv ... refers to freedom vector
-	pv ... refers to projection vector
-	rp ... refers to reference point
-	p  ... refers to to point being operated on
-	d  ... refers to distance
-
-	SETRELATIVE:
-	============
-
-	case freedom vector == x-axis:
-	------------------------------
+      Mathematical Considerations
+    ******************************
+
+    fv ... refers to freedom vector
+    pv ... refers to projection vector
+    rp ... refers to reference point
+    p  ... refers to to point being operated on
+    d  ... refers to distance
+
+    SETRELATIVE:
+    ============
+
+    case freedom vector == x-axis:
+    ------------------------------
 
-	                        (pv)
-	                     .-'
-	              rpd .-'
-	               .-*
-	          d .-'90°'
-	         .-'       '
-	      .-'           '
-	   *-'               ' b
-	  rp                  '
-	                       '
-	                        '
-	            p *----------*-------------- (fv)
-	                          pm
+                            (pv)
+                         .-'
+                  rpd .-'
+                   .-*
+              d .-'90°'
+             .-'       '
+          .-'           '
+       *-'               ' b
+      rp                  '
+                           '
+                            '
+                p *----------*-------------- (fv)
+                              pm
 
-	  rpdx = rpx + d * pv.x
-	  rpdy = rpy + d * pv.y
+      rpdx = rpx + d * pv.x
+      rpdy = rpy + d * pv.y
 
-	  equation of line b
+      equation of line b
 
-	   y - rpdy = pvns * (x- rpdx)
+       y - rpdy = pvns * (x- rpdx)
 
-	   y = p.y
+       y = p.y
 
-	   x = rpdx + ( p.y - rpdy ) / pvns
+       x = rpdx + ( p.y - rpdy ) / pvns
 
 
-	case freedom vector == y-axis:
-	------------------------------
+    case freedom vector == y-axis:
+    ------------------------------
 
-	    * pm
-	    |\
-	    | \
-	    |  \
-	    |   \
-	    |    \
-	    |     \
-	    |      \
-	    |       \
-	    |        \
-	    |         \ b
-	    |          \
-	    |           \
-	    |            \    .-' (pv)
-	    |         90° \.-'
-	    |           .-'* rpd
-	    |        .-'
-	    *     *-'  d
-	    p     rp
+        * pm
+        |\
+        | \
+        |  \
+        |   \
+        |    \
+        |     \
+        |      \
+        |       \
+        |        \
+        |         \ b
+        |          \
+        |           \
+        |            \    .-' (pv)
+        |         90° \.-'
+        |           .-'* rpd
+        |        .-'
+        *     *-'  d
+        p     rp
 
-	  rpdx = rpx + d * pv.x
-	  rpdy = rpy + d * pv.y
+      rpdx = rpx + d * pv.x
+      rpdy = rpy + d * pv.y
 
-	  equation of line b:
-	           pvns ... normal slope to pv
+      equation of line b:
+               pvns ... normal slope to pv
 
-	   y - rpdy = pvns * (x - rpdx)
+       y - rpdy = pvns * (x - rpdx)
 
-	   x = p.x
+       x = p.x
 
-	   y = rpdy +  pvns * (p.x - rpdx)
+       y = rpdy +  pvns * (p.x - rpdx)
 
 
 
-	generic case:
-	-------------
+    generic case:
+    -------------
 
 
-	                              .'(fv)
-	                            .'
-	                          .* pm
-	                        .' !
-	                      .'    .
-	                    .'      !
-	                  .'         . b
-	                .'           !
-	               *              .
-	              p               !
-	                         90°   .    ... (pv)
-	                           ...-*-'''
-	                  ...---'''    rpd
-	         ...---'''   d
-	   *--'''
-	  rp
+                                  .'(fv)
+                                .'
+                              .* pm
+                            .' !
+                          .'    .
+                        .'      !
+                      .'         . b
+                    .'           !
+                   *              .
+                  p               !
+                             90°   .    ... (pv)
+                               ...-*-'''
+                      ...---'''    rpd
+             ...---'''   d
+       *--'''
+      rp
 
-	    rpdx = rpx + d * pv.x
-	    rpdy = rpy + d * pv.y
+        rpdx = rpx + d * pv.x
+        rpdy = rpy + d * pv.y
 
-	 equation of line b:
-	    pvns... normal slope to pv
+     equation of line b:
+        pvns... normal slope to pv
 
-	    y - rpdy = pvns * (x - rpdx)
+        y - rpdy = pvns * (x - rpdx)
 
-	 equation of freedom vector line:
-	    fvs ... slope of freedom vector (=fy/fx)
+     equation of freedom vector line:
+        fvs ... slope of freedom vector (=fy/fx)
 
-	    y - py = fvs * (x - px)
+        y - py = fvs * (x - px)
 
 
-	  on pm both equations are true for same x/y
+      on pm both equations are true for same x/y
 
-	    y - rpdy = pvns * (x - rpdx)
+        y - rpdy = pvns * (x - rpdx)
 
-	    y - py = fvs * (x - px)
+        y - py = fvs * (x - px)
 
-	  form to y and set equal:
+      form to y and set equal:
 
-	    pvns * (x - rpdx) + rpdy = fvs * (x - px) + py
+        pvns * (x - rpdx) + rpdy = fvs * (x - px) + py
 
-	  expand:
+      expand:
 
-	    pvns * x - pvns * rpdx + rpdy = fvs * x - fvs * px + py
+        pvns * x - pvns * rpdx + rpdy = fvs * x - fvs * px + py
 
-	  switch:
+      switch:
 
-	    fvs * x - fvs * px + py = pvns * x - pvns * rpdx + rpdy
+        fvs * x - fvs * px + py = pvns * x - pvns * rpdx + rpdy
 
-	  solve for x:
+      solve for x:
 
-	    fvs * x - pvns * x = fvs * px - pvns * rpdx - py + rpdy
+        fvs * x - pvns * x = fvs * px - pvns * rpdx - py + rpdy
 
 
 
-	          fvs * px - pvns * rpdx + rpdy - py
-	    x =  -----------------------------------
-	                 fvs - pvns
+              fvs * px - pvns * rpdx + rpdy - py
+        x =  -----------------------------------
+                     fvs - pvns
 
-	  and:
+      and:
 
-	    y = fvs * (x - px) + py
+        y = fvs * (x - px) + py
 
 
 
-	INTERPOLATE:
-	============
+    INTERPOLATE:
+    ============
 
-	Examples of point interpolation.
+    Examples of point interpolation.
 
-	The weight of the movement of the reference point gets bigger
-	the further the other reference point is away, thus the safest
-	option (that is avoiding 0/0 divisions) is to weight the
-	original distance of the other point by the sum of both distances.
+    The weight of the movement of the reference point gets bigger
+    the further the other reference point is away, thus the safest
+    option (that is avoiding 0/0 divisions) is to weight the
+    original distance of the other point by the sum of both distances.
 
-	If the sum of both distances is 0, then move the point by the
-	arithmetic average of the movement of both reference points.
+    If the sum of both distances is 0, then move the point by the
+    arithmetic average of the movement of both reference points.
 
 
 
 
-	           (+6)
-	    rp1o *---->*rp1
-	         .     .                          (+12)
-	         .     .                  rp2o *---------->* rp2
-	         .     .                       .           .
-	         .     .                       .           .
-	         .    10          20           .           .
-	         |.........|...................|           .
-	               .   .                               .
-	               .   . (+8)                          .
-	                po *------>*p                      .
-	               .           .                       .
-	               .    12     .          24           .
-	               |...........|.......................|
-	                                  36
+               (+6)
+        rp1o *---->*rp1
+             .     .                          (+12)
+             .     .                  rp2o *---------->* rp2
+             .     .                       .           .
+             .     .                       .           .
+             .    10          20           .           .
+             |.........|...................|           .
+                   .   .                               .
+                   .   . (+8)                          .
+                    po *------>*p                      .
+                   .           .                       .
+                   .    12     .          24           .
+                   |...........|.......................|
+                                      36
 
 
-	-------
+    -------
 
 
 
-	           (+10)
-	    rp1o *-------->*rp1
-	         .         .                      (-10)
-	         .         .              rp2 *<---------* rpo2
-	         .         .                   .         .
-	         .         .                   .         .
-	         .    10   .          30       .         .
-	         |.........|.............................|
-	                   .                   .
-	                   . (+5)              .
-	                po *--->* p            .
-	                   .    .              .
-	                   .    .   20         .
-	                   |....|..............|
-	                     5        15
+               (+10)
+        rp1o *-------->*rp1
+             .         .                      (-10)
+             .         .              rp2 *<---------* rpo2
+             .         .                   .         .
+             .         .                   .         .
+             .    10   .          30       .         .
+             |.........|.............................|
+                       .                   .
+                       . (+5)              .
+                    po *--->* p            .
+                       .    .              .
+                       .    .   20         .
+                       |....|..............|
+                         5        15
 
 
-	-------
+    -------
 
 
-	           (+10)
-	    rp1o *-------->*rp1
-	         .         .
-	         .         .
-	    rp2o *-------->*rp2
+               (+10)
+        rp1o *-------->*rp1
+             .         .
+             .         .
+        rp2o *-------->*rp2
 
 
-	                               (+10)
-	                          po *-------->* p
+                                   (+10)
+                              po *-------->* p
 
-	-------
+    -------
 
 
-	           (+10)
-	    rp1o *-------->*rp1
-	         .         .
-	         .         .(+30)
-	    rp2o *---------------------------->*rp2
+               (+10)
+        rp1o *-------->*rp1
+             .         .
+             .         .(+30)
+        rp2o *---------------------------->*rp2
 
 
-	                                        (+25)
-	                          po *----------------------->* p
+                                            (+25)
+                              po *----------------------->* p
 
 
 
-	vim: set ts=4 sw=4 expandtab:
-	*****/
+    vim: set ts=4 sw=4 expandtab:
+    *****/
 
               // The Font object
 
