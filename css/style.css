@@ -345,7 +345,7 @@ h6, .h6 {
   line-height: 1.2; }
 
 .fix-pad{
-  padding: 8em 0 0 0 !important;
+  padding: 8em 0 35px 0 !important;
 }
 
 hr {
