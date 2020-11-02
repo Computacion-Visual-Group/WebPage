@@ -1,0 +1,10 @@
+
+  canvas {
+    margin: 0 auto;
+    display:block;
+  }
+
+  #defaultCanvas0{
+    width: 1000px;
+  height: 500px;
+  }
