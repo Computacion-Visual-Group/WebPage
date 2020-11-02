@@ -16,16 +16,9 @@
             var x = 0;
             var scene = new THREE.Scene();
             scene.background = new THREE.Color("rgb(0,0,0)");
-            //var camera = new THREE.PerspectiveCamera( 70, window.innerWidth/window.innerHeight, 2, 2000);
-            let camera = new THREE.OrthographicCamera(
-                window.innerWidth/-2,
-                window.innerWidth/2,
-                window.innerHeight/2,
-                window.innerHeight/-2,
-                2,
-                20000
-            )
-            camera.position.set(500,0,0)
+            var camera = new THREE.PerspectiveCamera( 70, window.innerWidth/window.innerHeight, 2, 1000);
+           
+            camera.position.set(150,0,0)
             var renderer = new THREE.WebGLRenderer()
             renderer.setSize(window.innerWidth, window.innerHeight)            
             document.body.appendChild( renderer.domElement );
