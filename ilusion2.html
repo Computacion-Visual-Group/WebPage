@@ -29,7 +29,7 @@
 	<script src="js/p5.min.js"></script>
 	<script src="js/p5.pre-min.js"></script>
 	<script src="js/p5.sound.min.js"></script>
-	<script src="js/Three.js"></script>
+	<script src="js/three.js"></script>
 	<script src="js/OrbitControls.js"></script>
 
 </head>
@@ -74,15 +74,8 @@
 								var scene = new THREE.Scene();
 								self.needupdate = true;
 								scene.background = new THREE.Color("rgb(0,0,0)");
-								//var camera = new THREE.PerspectiveCamera( 70, window.innerWidth/window.innerHeight, 2, 2000);
-								let camera = new THREE.OrthographicCamera(
-									window.innerWidth/-2,
-									window.innerWidth/2,
-									window.innerHeight/2,
-									window.innerHeight/-2,
-									2,
-									20000
-								)
+								var camera = new THREE.PerspectiveCamera( 70, window.innerWidth/window.innerHeight, 2, 2000);
+							
 								camera.position.set(150,0,0)
 								var renderer = new THREE.WebGLRenderer()
 								renderer.setSize(window.innerWidth, window.innerHeight)            
