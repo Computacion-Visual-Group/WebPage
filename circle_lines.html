@@ -1,6 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <script src="js/p5.min.js"></script>
+	<script src="js/p5.pre-min.js"></script>
+	<script src="js/p5.sound.min.js"></script>
 	<title>Computacion Visual</title>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -20,9 +23,7 @@
 	<link rel="stylesheet" href="css/style.css">
 
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.6.0/p5.js"></script>
-	<script src="js/p5.min.js"></script>
-	<script src="js/p5.pre-min.js"></script>
-	<script src="js/p5.sound.min.js"></script>
+	
 </head>
 <body>
 	
@@ -44,9 +45,9 @@
 
 	<section class="ftco-section bg-light fix-pad">
 		<div class="container">
-			<div class="row justify-content-center ">
+			<div class="row justify-content-center mb-5">
 				<div class="col-md-7 heading-section text-center ftco-animate">
-					<h2>Taller Analisis de Imagenes</h2>
+					<h2>Puntos que giran, o puede que no</h2>
 				</div>
 			</div>
 			<div class="row d-flex">
@@ -54,70 +55,51 @@
 					
 				</div>
 
-				<div class="col-md-10 d-flex ftco-animate">
+				<div class="col-md-12 d-flex ftco-animate">
+					<!-- Aqui poner imagens y explicación.-->
 					<div class="container">
-					<div class="row" style="margin-top: 5px;">
+					<div class="row">
 						<div class="col-1"></div>
-						<a href="grayscale.html"><div class="col"><img src="images/1.jpg" width="300" height="80" ></div></a>					
-						<a href="convolucion.html"><div class="col"><img src="images/2.jpg" width="300" height="80"></div></a>	
+						<div class="col"><p style="color: black;">
+							Esos puntos que ves no forman un círculo ni giran en el interior del otro círculo mayor. No. No lo hacen. Sólo van y vienen de un extremo al otro de una línea.</p>
+						</div>
 						<div class="col-1"></div>
+					</div>	
+					<div class="row" style="margin-bottom: 10px;">
+						
 					</div>
-					<div class="row" style="margin-top: 5px;">
+					
+					<div class="row">
+						<div class="col-1">
+                            <script src="sketches/circle_lines.js"></script>
+						</div>
+						<div class="col-1">
+							<a href="ilusión1.html"><input type="button" value="Anterior"></a>
+						</div>
+						<div class="col"><p style="color: black; font-weight: bold; text-align: center;"></p>
+						</div>						
+						<div class="col-1">
+							<a href="recursion.html"><input type="button" value="Siguiente"></a>
+						</div>
 						<div class="col-1"></div>
-						<a href="histograma.html"><div class="col"><img src="images/3.jpg" width="300" height="80" ></div></a>						
-						<a href="medicion.html"><div class="col"><img src="images/4.jpg" width="300" height="80" ></div></a>		
-						<div class="col-1"></div>
-					</div>
+                    </div>
+                    
+						
 				</div>
+					
+                
 				</div>
-			</div>
-		</div>
-	</section>
-	<section>
-		<div class="container">
-		<div class="row justify-content-center ">
-			<div class="col-md-7 heading-section text-center ftco-animate">
-				<h2>Taller Ilusiones Ópticas</h2>
-			</div>
-		</div>
-		<div class="col-md-20 d-flex ftco-animate">
-			<div class="container">
-			<div class="row" style="margin-top: 5px;">
-				<a href="circle_lines.html"><div class="col">Circle Lines  / Ilusión</div></a>					
-			</div>
-			<div class="row" style="margin-top: 5px;">
-				<a href="recursion.html"><div class="col">Recursion / Ilusión</div></a>						
-			</div>
-		</div>
-		</div>
-	</section>
-	<section>
-		<div class="container">
-			<div class="row">
-				<div class="col" style="text-align: center; margin-top: 20px; font-size: 25px; font-weight: bold; color: rgba(0, 0, 0, 0.8);">
-					¿Quienes somos?
+				
+				<div class="col-md-1 d-flex ftco-animate">
+					
 				</div>
 			</div>
-			<div class="row">
-				<div class="col-1"></div>
-				<div class="col"><img src="images/j.png" width="192" height="192" style="margin-left: auto; margin-right: auto; display: block;"></div>
-				<div class="col"><img src="images/b.png" width="192" height="192"  style="margin-left: auto; margin-right: auto; display: block;" ></div>
-				<div class="col"><img src="images/by.png" width="192" height="192"  style="margin-left: auto; margin-right: auto; display: block;" ></div>
-				<div class="col-1"></div>
-			</div>
-			<div class="row" style="margin-bottom: 18px;">
-				<div class="col-1"></div>
-				<div class="col" style="text-align: center; color: rgba(0, 0, 0, 0.8)">Felipe Contreras</div>
-				<div class="col" style="text-align: center; color: rgba(0, 0, 0, 0.8)">Brehynner Herrera</div>
-				<div class="col" style="text-align: center; color: rgba(0, 0, 0, 0.8)">Bryan Guzman</div>
-				<div class="col-1"></div>
-			</div>
-			
 		</div>
 	</section>		
 
 	
-		
+        
+
 	
 
 		<script src="js/jquery.min.js"></script>
@@ -134,7 +116,7 @@
 		<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&sensor=false"></script>
 		<script src="js/google-map.js"></script>
 		<script src="js/main.js"></script>
-		<script src="../p5.min.js"></script>
+		
 
 		
 	</body>
