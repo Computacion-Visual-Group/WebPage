@@ -45,13 +45,14 @@ function draw() {
   button1 = createButton('AGREGAR CIRCULOS');
   button2 = createButton('REMOVER CIRCULOS');
   button3 = createButton('LINES');
-  button1.position(width/2 + 30, height - 270);
+
+  button1.position(width/2 + 30, height + circDiameter - 100);
   button1.mousePressed(addCircles);
 
-  button2.position(width/2 - 30 - button2.width, height - 270);
+  button2.position(width/2 - 30 - button2.width, height + circDiameter - 100);
   button2.mousePressed(remCircles);
 
-  button3.position(width/2 - 30 , height - 300);
+  button3.position(width/2 - 30 , height + circDiameter - 100);
   button3.mousePressed(Linesfun);
 
   stroke(200);
