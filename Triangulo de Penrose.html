@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>My first three.js app</title>
+		<style>
+			body { margin: 0; }
+			canvas { display: block; }
+		</style>
+	</head>
+	<body>
+        <script src="js/three.js"></script>
+        <script src="js/OrbitControls.js"></script>
+
+		<script>
+            var x = 0;
+            var scene = new THREE.Scene();
+            scene.background = new THREE.Color("rgb(0,0,0)");
+            //var camera = new THREE.PerspectiveCamera( 70, window.innerWidth/window.innerHeight, 2, 2000);
+            let camera = new THREE.OrthographicCamera(
+                window.innerWidth/-2,
+                window.innerWidth/2,
+                window.innerHeight/2,
+                window.innerHeight/-2,
+                2,
+                20000
+            )
+            camera.position.set(500,500,500)
+            var renderer = new THREE.WebGLRenderer()
+            renderer.setSize(window.innerWidth, window.innerHeight)            
+            document.body.appendChild( renderer.domElement );
+            
+
+            window.addEventListener('resize',function(){
+                var width = window.innerWidth;
+                var height = window.innerHeight;
+                renderer,setSize(width,height);
+                camera.aspect=width/height;
+                camera.updateProjectionMatrix;
+
+            })
+
+            var controls = new THREE.OrbitControls( camera, renderer.domElement );
+            controls.enableDamping = true;
+            controls.screenSapcePanning = false;
+            controls.update();
+            
+            var geometry = new THREE.BoxGeometry( 50, 50, 300 );
+            let material = new THREE.MeshLambertMaterial({color: "lightgrey", flatShading:true})
+            var cube = new THREE.Mesh( geometry, material );
+            scene.add( cube );
+
+            let upBox = new THREE.BoxGeometry(50,300,50)
+            let upMesh = new THREE.Mesh(upBox, material)
+            upMesh.position.set(0,125,125)
+            scene.add(upMesh)
+
+            let topBox = new THREE.BoxGeometry(150,50,50)
+            let topMesh = new THREE.Mesh(topBox, material)
+            topMesh.position.set(100,250,125)
+            scene.add(topMesh)
+
+            let topPlane = new THREE.PlaneGeometry(50,50,32)
+            let topPlaneMesh = new THREE.Mesh(topPlane, material)
+            topPlaneMesh.position.set(200,275,125)
+            topPlaneMesh.rotation.x = THREE.Math.degToRad(-90)
+            scene.add(topPlaneMesh)
+
+            let topTri = new THREE.Geometry()
+            topTri.vertices.push(new THREE.Vector3(0,0,0))
+            topTri.vertices.push(new THREE.Vector3(50,0,0))
+            topTri.vertices.push(new THREE.Vector3(50,50,0))
+            topTri.faces.push(new THREE.Face3(0,1,2))
+            topTri.computeFaceNormals()
+            let topTriMesh = new THREE.Mesh(topTri, material)
+            topTriMesh.position.set(225,275,150)
+            topTriMesh.rotation.z = THREE.Math.degToRad(180)
+            scene.add(topTriMesh)
+
+            let light = new THREE.DirectionalLight("white", 1.8)
+            light.position.set(60, 100, 20)
+            scene.add(light)         
+
+            function animate() {
+                requestAnimationFrame( animate );
+                controls.update();
+                renderer.render(scene, camera);
+            }
+            animate()
+            /*function render() {
+                //using timer as animation
+                var speed = Date.now() * 0.00025;
+                camera.position.x = Math.cos(speed) * 10;
+                camera.position.z = Math.sin(speed) * 10;
+
+                camera.lookAt(scene.position); //0,0,0
+                renderer.render(scene, camera);
+            }*/
+		</script>
+	</body>
+</html>

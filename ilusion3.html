@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>Computacion Visual</title>
+	<meta charset="utf-8">
+	
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	
+	<style>
+		body { margin: 0; }
+		canvas { display: block; }
+	</style>
+
+	<link href="https://fonts.googleapis.com/css?family=Nunito+Sans:200,300,400,600,700,800,900&display=swap" rel="stylesheet">
+
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+	<link rel="stylesheet" href="css/animate.css">
+	
+	<link rel="stylesheet" href="css/owl.carousel.min.css">
+	<link rel="stylesheet" href="css/owl.theme.default.min.css">
+	<link rel="stylesheet" href="css/magnific-popup.css">
+	
+	
+	<link rel="stylesheet" href="css/flaticon.css">
+	<link rel="stylesheet" href="css/style.css">
+
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.6.0/p5.js"></script>
+	<script src="js/p5.min.js"></script>
+	<script src="js/p5.pre-min.js"></script>
+	<script src="js/p5.sound.min.js"></script>
+	<script src="js/Three.js"></script>
+	<script src="js/OrbitControls.js"></script>
+
+</head>
+<body>
+	
+	<nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
+		<div class="container">
+			<a class="navbar-brand" href="index.html">Triangulo de Penrose</a>
+			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
+				<span class="oi oi-menu"></span> Menu
+			</button>
+
+			<div class="collapse navbar-collapse" id="ftco-nav">
+				<ul class="navbar-nav ml-auto">
+					<li class="nav-item active"><a href="index.html" class="nav-link">Home</a></li>	
+				</ul>
+			</div>
+		</div>
+	</nav>
+	<!-- END nav -->
+
+	<section class="ftco-section bg-light fix-pad">
+		<div class="container">
+			<div class="row justify-content-center mb-5">
+				<div class="col-md-7 heading-section text-center ftco-animate">
+					<h2>Six Cubes / Seven Cubes</h2>
+				</div>
+			</div>
+			<div class="row d-flex">
+				<div class="col-md-1 d-flex ftco-animate">
+					
+				</div>
+
+				<div class="col-md-12 d-flex ftco-animate">
+					<!-- Aqui poner imagens y explicación.-->
+					<div class="container">
+					<div class="row" style="margin-bottom: 10px;">
+						<div class="col-1"></div>
+						<div class="col">
+							<script>
+								var x = 0;
+								var scene = new THREE.Scene();
+								scene.background = new THREE.Color("rgb(0,0,0)");
+								//var camera = new THREE.PerspectiveCamera( 70, window.innerWidth/window.innerHeight, 2, 2000);
+								let camera = new THREE.OrthographicCamera(
+									window.innerWidth/-2,
+									window.innerWidth/2,
+									window.innerHeight/2,
+									window.innerHeight/-2,
+									2,
+									20000
+								)
+								camera.position.set(500,500,500)
+								var renderer = new THREE.WebGLRenderer()
+								renderer.setSize(window.innerWidth, window.innerHeight)            
+								document.body.appendChild( renderer.domElement );
+								
+					
+								window.addEventListener('resize',function(){
+									var width = window.innerWidth;
+									var height = window.innerHeight;
+									renderer,setSize(width,height);
+									camera.aspect=width/height;
+									camera.updateProjectionMatrix;
+					
+								})
+					
+								var controls = new THREE.OrbitControls( camera, renderer.domElement );
+								controls.enableDamping = true;
+								controls.screenSapcePanning = false;
+								controls.update();
+								
+								var geometry = new THREE.BoxGeometry( 50, 50, 300 );
+								let material = new THREE.MeshLambertMaterial({color: "lightgrey", flatShading:true})
+								var cube = new THREE.Mesh( geometry, material );
+								scene.add( cube );
+					
+								let upBox = new THREE.BoxGeometry(50,300,50)
+								let upMesh = new THREE.Mesh(upBox, material)
+								upMesh.position.set(0,125,125)
+								scene.add(upMesh)
+					
+								let topBox = new THREE.BoxGeometry(150,50,50)
+								let topMesh = new THREE.Mesh(topBox, material)
+								topMesh.position.set(100,250,125)
+								scene.add(topMesh)
+					
+								let topPlane = new THREE.PlaneGeometry(50,50,32)
+								let topPlaneMesh = new THREE.Mesh(topPlane, material)
+								topPlaneMesh.position.set(200,275,125)
+								topPlaneMesh.rotation.x = THREE.Math.degToRad(-90)
+								scene.add(topPlaneMesh)
+					
+								let topTri = new THREE.Geometry()
+								topTri.vertices.push(new THREE.Vector3(0,0,0))
+								topTri.vertices.push(new THREE.Vector3(50,0,0))
+								topTri.vertices.push(new THREE.Vector3(50,50,0))
+								topTri.faces.push(new THREE.Face3(0,1,2))
+								topTri.computeFaceNormals()
+								let topTriMesh = new THREE.Mesh(topTri, material)
+								topTriMesh.position.set(225,275,150)
+								topTriMesh.rotation.z = THREE.Math.degToRad(180)
+								scene.add(topTriMesh)
+					
+								let light = new THREE.DirectionalLight("white", 1.8)
+								light.position.set(60, 100, 20)
+								scene.add(light)         
+					
+								function animate() {
+									requestAnimationFrame( animate );
+									controls.update();
+									renderer.render(scene, camera);
+								}
+								animate()
+								/*function render() {
+									//using timer as animation
+									var speed = Date.now() * 0.00025;
+									camera.position.x = Math.cos(speed) * 10;
+									camera.position.z = Math.sin(speed) * 10;
+					
+									camera.lookAt(scene.position); //0,0,0
+									renderer.render(scene, camera);
+								}*/
+							</script>
+						</div>
+						<div class="col-1"></div>
+					</div>
+					
+					<div class="row">
+						<div class="col-1">
+							
+						</div>
+						<div class="col-1">
+							<a href="ilusion2.html"><input type="button" value="Anterior"></a>
+						</div>
+						<div class="col"><p style="color: black; font-weight: bold; text-align: center;">Mas ilusiones</p>
+						</div>						
+						<div class="col-1">
+							<a href=""><input type="button" value="Siguiente"></a>
+						</div>
+						<div class="col-1"></div>
+					</div>
+						
+				</div>
+					
+					
+				</div>
+				
+				<div class="col-md-1 d-flex ftco-animate">
+					
+				</div>
+			</div>
+		</div>
+	</section>		
+
+	
+		
+	
+
+		<script src="js/jquery.min.js"></script>
+		<script src="js/jquery-migrate-3.0.1.min.js"></script>
+		<script src="js/popper.min.js"></script>
+		<script src="js/bootstrap.min.js"></script>
+		<script src="js/jquery.easing.1.3.js"></script>
+		<script src="js/jquery.waypoints.min.js"></script>
+		<script src="js/jquery.stellar.min.js"></script>
+		<script src="js/owl.carousel.min.js"></script>
+		<script src="js/jquery.magnific-popup.min.js"></script>
+		<script src="js/jquery.animateNumber.min.js"></script>
+		<script src="js/scrollax.min.js"></script>
+		<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&sensor=false"></script>
+		<script src="js/google-map.js"></script>
+		<script src="js/main.js"></script>
+		<script src="../p5.min.js"></script>
+
+		
+	</body>
+	</html>

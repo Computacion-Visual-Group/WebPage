@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>My first three.js app</title>
+		<style>
+			body { margin: 0; }
+			canvas { display: block; }
+		</style>
+	</head>
+	<body>
+        <script src="js/three.js"></script>
+        <script src="js/OrbitControls.js"></script>
+
+		<script>
+            var x = 0;
+            var scene = new THREE.Scene();
+            scene.background = new THREE.Color("rgb(0,0,0)");
+            //var camera = new THREE.PerspectiveCamera( 70, window.innerWidth/window.innerHeight, 2, 2000);
+            let camera = new THREE.OrthographicCamera(
+                window.innerWidth/-2,
+                window.innerWidth/2,
+                window.innerHeight/2,
+                window.innerHeight/-2,
+                2,
+                20000
+            )
+            camera.position.set(500,0,0)
+            var renderer = new THREE.WebGLRenderer()
+            renderer.setSize(window.innerWidth, window.innerHeight)            
+            document.body.appendChild( renderer.domElement );
+            
+
+            window.addEventListener('resize',function(){
+                var width = window.innerWidth;
+                var height = window.innerHeight;
+                renderer,setSize(width,height);
+                camera.aspect=width/height;
+                camera.updateProjectionMatrix;
+
+            })
+
+            var controls = new THREE.OrbitControls( camera, renderer.domElement );
+            controls.enableDamping = true;
+            controls.screenSapcePanning = false;
+            controls.update();            
+           
+            let material = new THREE.MeshLambertMaterial({color: "rgb(0,0,0)", flatShading:true})
+            // 1 linea blanca        
+            for( var i = 1; i < 15; i = i+2){
+                let topPlane4 = new THREE.PlaneGeometry(60,60,60)
+                let topPlaneMesh4 = new THREE.Mesh(topPlane4, material)
+                if(i<2){
+                    topPlaneMesh4.position.set(-90,120,60*i+5)
+                }
+                else{
+                    topPlaneMesh4.position.set(-90,120,60*i+5*i)
+                }
+                
+                topPlaneMesh4.rotation.y = THREE.Math.degToRad(90)
+                topPlaneMesh4.renderOrder = 1;
+                scene.add(topPlaneMesh4)
+
+                var outlineMaterial = new THREE.MeshLambertMaterial({color:"rgb(108,108,108)", flatShading:true});
+                let topPlane5 = new THREE.PlaneGeometry(65,65,65)
+                let topPlaneMesh5 = new THREE.Mesh(topPlane5, outlineMaterial)
+                if(i<2){
+                    topPlaneMesh5.position.set(-91,120,60*i+5)
+                }
+                else{
+                    topPlaneMesh5.position.set(-91,120,60*i+5*i)
+                }
+                
+                topPlaneMesh5.rotation.y = THREE.Math.degToRad(90)
+                scene.add(topPlaneMesh5)
+            }
+            //1 linea negra
+            let materialn = new THREE.MeshLambertMaterial({color: "rgb(255,255,255)", flatShading:true})
+            
+            for( var i = 1; i < 15; i = i+2){
+                let topPlane4 = new THREE.PlaneGeometry(60,60,60)
+                let topPlaneMesh4 = new THREE.Mesh(topPlane4, materialn)
+                if(i<2){
+                    topPlaneMesh4.position.set(-90,120,60*i+70)
+                }
+                else{
+                    topPlaneMesh4.position.set(-90,120,60*i+5*i+65)
+                }
+                
+                topPlaneMesh4.rotation.y = THREE.Math.degToRad(90)
+                topPlaneMesh4.renderOrder = 1;
+                scene.add(topPlaneMesh4)
+
+                var outlineMaterial = new THREE.MeshLambertMaterial({color:"rgb(108,108,108)", flatShading:true});
+                let topPlane5 = new THREE.PlaneGeometry(65,65,65)
+                let topPlaneMesh5 = new THREE.Mesh(topPlane5, outlineMaterial)
+                if(i<2){
+                    topPlaneMesh5.position.set(-91,120,60*i+70)
+                }
+                else{
+                    topPlaneMesh5.position.set(-91,120,60*i+5*i+65)
+                }
+                
+                topPlaneMesh5.rotation.y = THREE.Math.degToRad(90)
+                scene.add(topPlaneMesh5)
+            }
+            //2 linea
+            for( var i = 1; i < 15; i = i+2){
+                let topPlane4 = new THREE.PlaneGeometry(60,60,60)
+                let topPlaneMesh4 = new THREE.Mesh(topPlane4, material)
+                if(i<2){
+                    topPlaneMesh4.position.set(-90,55,60*i-15)
+                }
+                else{
+                    topPlaneMesh4.position.set(-90,55,60*i-20+5*i)
+                }
+                
+                topPlaneMesh4.rotation.y = THREE.Math.degToRad(90)
+                scene.add(topPlaneMesh4)
+
+                var outlineMaterial = new THREE.MeshLambertMaterial({color:"rgb(108,108,108)", flatShading:true});
+                let topPlane5 = new THREE.PlaneGeometry(65,65,65)
+                let topPlaneMesh5 = new THREE.Mesh(topPlane5, outlineMaterial)
+                if(i<2){
+                    topPlaneMesh5.position.set(-91,55,60*i-15)
+                }
+                else{
+                    topPlaneMesh5.position.set(-91,55,(60*i+10)-30+5*i)
+                }
+                
+                topPlaneMesh5.rotation.y = THREE.Math.degToRad(90)
+                scene.add(topPlaneMesh5)
+            }
+            //2 linea negra
+            for( var i = 1; i < 15; i = i+2){
+                let topPlane4 = new THREE.PlaneGeometry(60,60,60)
+                let topPlaneMesh4 = new THREE.Mesh(topPlane4, materialn)
+                if(i<2){
+                    topPlaneMesh4.position.set(-90,55,60*i+50)
+                }
+                else{
+                    topPlaneMesh4.position.set(-90,55,60*i+45+5*i)
+                }
+                
+                topPlaneMesh4.rotation.y = THREE.Math.degToRad(90)
+                scene.add(topPlaneMesh4)
+
+                var outlineMaterial = new THREE.MeshLambertMaterial({color:"rgb(108,108,108)", flatShading:true});
+                let topPlane5 = new THREE.PlaneGeometry(65,65,65)
+                let topPlaneMesh5 = new THREE.Mesh(topPlane5, outlineMaterial)
+                if(i<2){
+                    topPlaneMesh5.position.set(-91,55,60*i+50)
+                }
+                else{
+                    topPlaneMesh5.position.set(-91,55,(60*i+10)+35+5*i)
+                }
+                
+                topPlaneMesh5.rotation.y = THREE.Math.degToRad(90)
+                scene.add(topPlaneMesh5)
+            }
+            //3 linea
+            
+            for( var i = 1; i < 15; i = i+2){
+                let topPlane4 = new THREE.PlaneGeometry(60,60,60)
+                let topPlaneMesh4 = new THREE.Mesh(topPlane4, material)
+
+                if(i<2){
+                    topPlaneMesh4.position.set(-90,-10,60*i-35)
+                }
+                else{
+                    topPlaneMesh4.position.set(-90,-10,60*i-40+5*i)
+                }
+
+                
+                topPlaneMesh4.rotation.y = THREE.Math.degToRad(90)
+                scene.add(topPlaneMesh4)
+
+                var outlineMaterial = new THREE.MeshLambertMaterial({color:"rgb(108,108,108)", flatShading:true});
+                let topPlane5 = new THREE.PlaneGeometry(65,65,65)
+                let topPlaneMesh5 = new THREE.Mesh(topPlane5, outlineMaterial)
+                if(i<2){
+                    topPlaneMesh5.position.set(-91,-10,60*i-35)
+                }
+                else{
+                    topPlaneMesh5.position.set(-91,-10,(60*i+10)-50+5*i)
+                }
+                
+                topPlaneMesh5.rotation.y = THREE.Math.degToRad(90)
+                scene.add(topPlaneMesh5)
+
+            }
+            //3 linea negra
+            
+            for( var i = 1; i < 15; i = i+2){
+                let topPlane4 = new THREE.PlaneGeometry(60,60,60)
+                let topPlaneMesh4 = new THREE.Mesh(topPlane4, materialn)
+
+                if(i<2){
+                    topPlaneMesh4.position.set(-90,-10,60*i+30)
+                }
+                else{
+                    topPlaneMesh4.position.set(-90,-10,60*i+25+5*i)
+                }
+
+                
+                topPlaneMesh4.rotation.y = THREE.Math.degToRad(90)
+                scene.add(topPlaneMesh4)
+
+                var outlineMaterial = new THREE.MeshLambertMaterial({color:"rgb(108,108,108)", flatShading:true});
+                let topPlane5 = new THREE.PlaneGeometry(65,65,65)
+                let topPlaneMesh5 = new THREE.Mesh(topPlane5, outlineMaterial)
+                if(i<2){
+                    topPlaneMesh5.position.set(-91,-10,60*i+30)
+                }
+                else{
+                    topPlaneMesh5.position.set(-91,-10,(60*i+10)+15+5*i)
+                }
+                
+                topPlaneMesh5.rotation.y = THREE.Math.degToRad(90)
+                scene.add(topPlaneMesh5)
+
+            }
+
+               
+            //4 linea
+            for( var i = 1; i < 15; i = i+2){
+                let topPlane4 = new THREE.PlaneGeometry(60,60,60)
+                let topPlaneMesh4 = new THREE.Mesh(topPlane4, material)
+                if(i<2){
+                    topPlaneMesh4.position.set(-90,-75,60*i-15)
+                }
+                else{
+                    topPlaneMesh4.position.set(-90,-75,60*i-20+5*i)
+                }
+                
+                topPlaneMesh4.rotation.y = THREE.Math.degToRad(90)
+                scene.add(topPlaneMesh4)
+
+                var outlineMaterial = new THREE.MeshLambertMaterial({color:"rgb(108,108,108)", flatShading:true});
+                let topPlane5 = new THREE.PlaneGeometry(65,65,65)
+                let topPlaneMesh5 = new THREE.Mesh(topPlane5, outlineMaterial)
+                if(i<2){
+                    topPlaneMesh5.position.set(-91,-75,60*i-15)
+                }
+                else{
+                    topPlaneMesh5.position.set(-91,-75,(60*i+10)-30+5*i)
+                }
+                
+                topPlaneMesh5.rotation.y = THREE.Math.degToRad(90)
+                scene.add(topPlaneMesh5)
+
+            }
+             //4 linea negra
+             for( var i = 1; i < 15; i = i+2){
+                let topPlane4 = new THREE.PlaneGeometry(60,60,60)
+                let topPlaneMesh4 = new THREE.Mesh(topPlane4, materialn)
+                if(i<2){
+                    topPlaneMesh4.position.set(-90,-75,60*i+50)
+                }
+                else{
+                    topPlaneMesh4.position.set(-90,-75,60*i+45+5*i)
+                }
+                
+                topPlaneMesh4.rotation.y = THREE.Math.degToRad(90)
+                scene.add(topPlaneMesh4)
+
+                var outlineMaterial = new THREE.MeshLambertMaterial({color:"rgb(108,108,108)", flatShading:true});
+                let topPlane5 = new THREE.PlaneGeometry(65,65,65)
+                let topPlaneMesh5 = new THREE.Mesh(topPlane5, outlineMaterial)
+                if(i<2){
+                    topPlaneMesh5.position.set(-91,-75,60*i+50)
+                }
+                else{
+                    topPlaneMesh5.position.set(-91,-75,(60*i+10)+35+5*i)
+                }
+                
+                topPlaneMesh5.rotation.y = THREE.Math.degToRad(90)
+                scene.add(topPlaneMesh5)
+
+            }
+            //linea 5
+            for( var i = 1; i < 15; i = i+2){
+                let topPlane4 = new THREE.PlaneGeometry(60,60,60)
+                let topPlaneMesh4 = new THREE.Mesh(topPlane4, material)
+
+                if(i<2){
+                    topPlaneMesh4.position.set(-90,-140,60*i+5)
+                }
+                else{
+                    topPlaneMesh4.position.set(-90,-140,60*i+5*i)
+                }
+
+                
+                topPlaneMesh4.rotation.y = THREE.Math.degToRad(90)
+                scene.add(topPlaneMesh4)
+
+                var outlineMaterial = new THREE.MeshLambertMaterial({color:"rgb(108,108,108)", flatShading:true});
+                let topPlane5 = new THREE.PlaneGeometry(65,65,65)
+                let topPlaneMesh5 = new THREE.Mesh(topPlane5, outlineMaterial)
+                if(i<2){
+                    topPlaneMesh5.position.set(-91,-140,60*i+5)
+                }
+                else{
+                    topPlaneMesh5.position.set(-91,-140,(60*i+10)-10+5*i)
+                }
+                
+                topPlaneMesh5.rotation.y = THREE.Math.degToRad(90)
+                scene.add(topPlaneMesh5)
+            }
+
+            for( var i = 1; i < 15; i = i+2){
+                let topPlane4 = new THREE.PlaneGeometry(60,60,60)
+                let topPlaneMesh4 = new THREE.Mesh(topPlane4, materialn)
+
+                if(i<2){
+                    topPlaneMesh4.position.set(-90,-140,60*i+70)
+                }
+                else{
+                    topPlaneMesh4.position.set(-90,-140,60*i+5*i+65)
+                }
+
+                
+                topPlaneMesh4.rotation.y = THREE.Math.degToRad(90)
+                scene.add(topPlaneMesh4)
+
+                var outlineMaterial = new THREE.MeshLambertMaterial({color:"rgb(108,108,108)", flatShading:true});
+                let topPlane5 = new THREE.PlaneGeometry(65,65,65)
+                let topPlaneMesh5 = new THREE.Mesh(topPlane5, outlineMaterial)
+                if(i<2){
+                    topPlaneMesh5.position.set(-91,-140,60*i+70)
+                }
+                else{
+                    topPlaneMesh5.position.set(-91,-140,60*i+5*i+65)
+                }
+                
+                topPlaneMesh5.rotation.y = THREE.Math.degToRad(90)
+                scene.add(topPlaneMesh5)
+            }
+
+
+        
+
+          /*  var cube5= new THREE.Mesh( geometry, material );
+            cube5.position.set(50,0,-50)
+            scene.add( cube5 );*/
+
+       
+
+            
+
+            /*let upBox = new THREE.BoxGeometry(50,300,50)
+            let upMesh = new THREE.Mesh(upBox, material)
+            upMesh.position.set(0,125,125)
+            scene.add(upMesh)
+
+            let topBox = new THREE.BoxGeometry(150,50,50)
+            let topMesh = new THREE.Mesh(topBox, material)
+            topMesh.position.set(100,250,125)
+            scene.add(topMesh)
+
+            let topPlane = new THREE.PlaneGeometry(50,50,32)
+            let topPlaneMesh = new THREE.Mesh(topPlane, material)
+            topPlaneMesh.position.set(200,275,125)
+            topPlaneMesh.rotation.x = THREE.Math.degToRad(-90)
+            scene.add(topPlaneMesh)
+
+            let topTri = new THREE.Geometry()
+            topTri.vertices.push(new THREE.Vector3(0,0,0))
+            topTri.vertices.push(new THREE.Vector3(50,0,0))
+            topTri.vertices.push(new THREE.Vector3(50,50,0))
+            topTri.faces.push(new THREE.Face3(0,1,2))
+            topTri.computeFaceNormals()
+            let topTriMesh = new THREE.Mesh(topTri, material)
+            topTriMesh.position.set(225,275,150)
+            topTriMesh.rotation.z = THREE.Math.degToRad(180)
+            scene.add(topTriMesh)*/
+
+            let light = new THREE.DirectionalLight("white", 1.8)
+            light.position.set(60, 100, 20)
+            scene.add(light)         
+
+            function animate() {
+                requestAnimationFrame( animate );
+                controls.update();
+                renderer.render(scene, camera);
+            }
+            animate()
+            /*function render() {
+                //using timer as animation
+                var speed = Date.now() * 0.00025;
+                camera.position.x = Math.cos(speed) * 10;
+                camera.position.z = Math.sin(speed) * 10;
+
+                camera.lookAt(scene.position); //0,0,0
+                renderer.render(scene, camera);
+            }*/
+		</script>
+	</body>
+</html>
