@@ -100,11 +100,28 @@
 
 				<div class="col-md-12 d-flex ftco-animate">
 					<!-- Aqui poner imagens y explicación.-->
-					<div class="container">
+					<div class="container"> 
 					<div class="row">
 						<div class="col-1"></div>
 						<div class="col"><p style="color: black;">
-							Description</p>
+							La niebla se simula mezclando el color de la niebla y el color del fragmento en un fragment shader: <br>
+							<br>
+							<code style="margin-left: 150px; margin-top: 20px;"> color = mezclar (FogColor, vec3 (v_Color), fogFactor) </code><br>
+							<br>
+							Aquí fogFactor se calcula mediante una función decreciente de la distancia entre un fragmento y la cámara. <br>
+							Se pueden usar diferentes ecuaciones para calcular el factor de niebla. En este ejemplo, se usa una ecuación lineal.  <br>
+							<br>
+							En este ejemplo, los usuarios pueden ajustar el el valor de la niebla con la barra de control, cambiando el fogFactor,
+							cuando el final de la niebla está más lejos de la cámara, la niebla se vuelve más fina.
+							Hay diferentes formas de calcular la distancia entre un fragmento y la cámara.
+							En este ejemplo, la distancia entre un vértice y la cámara se calcula en el vertex shader, y luego pasó al fragment shader. <br>
+							<br>
+							Por lo tanto, este ejemplo es niebla por vértice. Puede calcular la distancia entre un fragmento y la cámara en el sombreador de fragmentos. 
+							Eso sería niebla por fragmento. 
+							También puede utilizar la profundidad (coordenada Z) de un fragmento como su distancia a la cámara.
+							Para ese caso, el componente W de cada coordenada de vértice se utiliza como distancia entre ese vértice y la cámara. 
+
+						</p>
 						</div>
 						<div class="col-1"></div>
 					</div>	
@@ -124,8 +141,8 @@
 						
 
                     </div>
-					<div class="row" style="margin-top: 20px;">
-						<div class="col-1">
+					<div class="row" style="margin-top: 5px;">
+						<div class="col-12" style="margin-left: -21%;"difpl>
                             <canvas id="canvas"></canvas>	
 						</div>
 					</div>
@@ -136,11 +153,6 @@
 			</div>
 		</div>
 	</section>		
-
-	
-        
-
-	
 
 		<script type='text/javascript' src='shared/bunny-model.js'></script>
 		<script type='text/javascript' src='shared/matrices.js'></script>
