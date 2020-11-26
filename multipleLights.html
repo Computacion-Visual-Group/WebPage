@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<link type='text/css' rel='stylesheet' href='../../shared/style.css' />
+    <script src="js/p5.min.js"></script>
+	<script src="js/p5.pre-min.js"></script>
+	<script src="js/p5.sound.min.js"></script>
+	<title>Computacion Visual</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	
+	<link href="https://fonts.googleapis.com/css?family=Nunito+Sans:200,300,400,600,700,800,900&display=swap" rel="stylesheet">
+
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+	<link rel="stylesheet" href="css/animate.css">
+	
+	<link rel="stylesheet" href="css/owl.carousel.min.css">
+	<link rel="stylesheet" href="css/owl.theme.default.min.css">
+	<link rel="stylesheet" href="css/magnific-popup.css">
+	
+	
+	<link rel="stylesheet" href="css/flaticon.css">
+	<link rel="stylesheet" href="css/style.css">
+
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.6.0/p5.js"></script>
+	
+</head>
+<body>
+
+	<script id="vertex-shader" type="x-shader/x-vertex">
+		// The normals are added along with the positions
+		attribute vec3 position;
+		attribute vec3 normal;
+		
+		// The transformation matrices
+		uniform mat4 model;
+		uniform mat4 view;
+		uniform mat4 projection;
+		uniform mat3 normalMatrix;
+		
+		// Pass the normal down to the fragment shader
+		varying vec3 vNormal;
+		
+		// Pass the position in world space down to the fragment shader
+		varying vec3 vPosition;
+		
+		void main() {
+		  
+		  vNormal = normalMatrix * normal;
+		  vPosition = (model * vec4( position, 1.0 )).xyz;
+		  
+		  gl_Position = projection * view * model * vec4( position, 1.0 );
+		}
+	  </script>
+	
+	  <script id="fragment-shader" type="x-shader/x-fragment">
+		precision mediump float;
+	
+		// This is needed to figure out the specular highlight
+		uniform vec3 cameraPosition;
+	
+		// The model color
+		uniform vec4 color;
+	
+		// The model's specular color
+		uniform vec4 specularColor;
+	
+		// The amount of ambient light
+		uniform float ambientLight;
+		
+		// The specular values passed in from the shader
+		uniform float specularAmount;
+		uniform float specularShininess;
+		
+		// The lights
+		uniform vec3 light;
+		uniform vec3 light2;
+		uniform vec3 light3;
+		
+		// The values passed down from the vertex shader
+		varying vec3 vNormal;
+		varying vec3 vPosition;
+		
+		void main() {
+		  
+		  // Get the direction from the surface to the camera, which is located at
+		  // (0,-1,0) in clip space. The camera position is hardcoded for convenience.
+		  vec3 directionToCamera = normalize(cameraPosition - vPosition);
+		  
+		  // Find the vector pointing halfway between the directions
+		  // of the camera and light from this point on the surface
+		  vec3 halfwayVector = normalize( directionToCamera + light + light2 +light3);
+		  
+		  // Calculate the specular highlight
+		  float specularBrightness = (
+			
+			specularAmount * // Adjust the overall amount of specular light
+	
+			// Find the angle between the normal and the halfwayVector by taking
+			// the dot product, and then raise it to a certain power. The power
+			// increases or decreases the size of the bright spot.
+			pow(
+			  max(0.0, dot(vNormal, halfwayVector)),
+			  specularShininess
+			)
+		  );
+		  
+		  // Calculate the brightness of the surface using the lambertian lighting model
+		  float lightDotProduct = dot( normalize(vNormal), light );
+		  float surfaceBrightness = max( 0.0, lightDotProduct );
+		  
+		  // Multiply together all of the various light values
+		  gl_FragColor = vec4(color.xyz * surfaceBrightness + specularColor.xyz * specularBrightness, color.w);
+		  
+		}
+	  </script>
+	
+	<nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
+		<div class="container">
+			<a class="navbar-brand" href="index.html">Computacion Visual</a>
+			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
+				<span class="oi oi-menu"></span> Menu
+			</button>
+
+			<div class="collapse navbar-collapse" id="ftco-nav">
+				<ul class="navbar-nav ml-auto">
+					<li class="nav-item active"><a href="index.html" class="nav-link">Home</a></li>	
+				</ul>
+			</div>
+		</div>
+	</nav>
+	<!-- END nav -->
+
+	<section class="ftco-section bg-light fix-pad">
+		<div class="container">
+			<div class="row justify-content-center mb-5">
+				<div class="col-md-7 heading-section text-center ftco-animate">
+					<h2>light Attenuation & ambient, diffuse and specular</h2>
+				</div>
+			</div>
+			<div class="row d-flex">
+				<div class="col-md-1 d-flex ftco-animate">
+					
+				</div>
+
+				<div class="col-md-12 d-flex ftco-animate">
+					<!-- Aqui poner imagens y explicación.-->
+					<div class="container">
+					<div class="row">
+						<div class="col-1"></div>
+						<div class="col"><p style="color: black;">
+							<style>
+								code {
+								  font-family: Consolas,"courier new";
+								  color: crimson;
+								  background-color: #f1f1f1;
+								  padding: 2px;
+								  font-size: 105%;
+								}
+								</style>
+								<h3>Light Attenuation</h3>
+							<code>to_light = u_Light_position - v_Vertex;<br>
+								d = length( to_light );<br>
+								attenuation = clamp( 10.0 / d, 0.0, 1.0);<br>
+								// ...<br>
+								color = attenuation * (ambient_color + diffuse_color + specular_color);</code></p>
+								<h3>Phong reflection model</h3>
+								<img src="images/Specular.png" alt="Box Blur">
+								<br><p>La reflexión de Phong es un modelo empírico de iluminación local. Describe la forma en que una superficie refleja la luz como una combinación de la reflexión difusa de las superficies rugosas con la reflexión especular de las superficies brillantes. Se basa en la observación informal de Phong de que las superficies brillantes tienen pequeños reflejos especulares intensos, mientras que las superficies opacas tienen grandes reflejos que se caen de forma más gradual. El modelo también incluye un término ambiental para dar cuenta de la pequeña cantidad de luz que se dispersa en toda la escena.</p>
+						</div>
+						<div class="col-1"></div>
+					</div>	
+					<div class="row" style="margin-bottom: 10px;">
+						
+					</div>
+					<div class="row">
+						
+						<div class="col-1">
+							<a href="3T2P.html"><input type="button" value="Anterior"></a>
+						</div>
+						<div class="col"><p style="color: black; font-weight: bold; text-align: center;"></p>
+						</div>						
+						<div class="col-1">
+							<a href="Shadow.html"><input type="button" value="Siguiente"></a>
+						</div>
+						
+
+                    </div>
+					<div class="row" style="margin-top: 20px;">
+						<div class="col-1">
+                            <canvas id="canvas"></canvas>	
+						</div>
+					</div>
+						
+				</div>
+					
+				</div>
+			</div>
+		</div>
+	</section>		
+
+	
+        
+
+	
+
+		<script type='text/javascript' src='shared/bunny-model.js'></script>
+		<script type='text/javascript' src='shared/matrices.js'></script>
+		<script type='text/javascript' src='shared/shaders.js'></script>
+		<script type='text/javascript' src='shared/dat.gui.min.js'></script>
+		<script type='text/javascript' src='js/mlights.js'></script>
+
+		<script src="js/jquery.min.js"></script>
+		<script src="js/jquery-migrate-3.0.1.min.js"></script>
+		<script src="js/popper.min.js"></script>
+		<script src="js/bootstrap.min.js"></script>
+		<script src="js/jquery.easing.1.3.js"></script>
+		<script src="js/jquery.waypoints.min.js"></script>
+		<script src="js/jquery.stellar.min.js"></script>
+		<script src="js/owl.carousel.min.js"></script>
+		<script src="js/jquery.magnific-popup.min.js"></script>
+		<script src="js/jquery.animateNumber.min.js"></script>
+		<script src="js/scrollax.min.js"></script>
+		<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&sensor=false"></script>
+		<script src="js/google-map.js"></script>
+		<script src="js/main.js"></script>
+		
+
+		
+	</body>
+	</html>
