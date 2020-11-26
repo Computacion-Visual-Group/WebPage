@@ -312,31 +312,31 @@ BunnyDemo.prototype.addDatGui = function() {
 	// For the demo, add an interface to live-tweak the values
 	
 	var light = {
-		lightDirectionX : this.light[0],
+		Fog_Effect : this.light[0],
 		lightDirectionY : this.light[1],
 		lightDirectionZ : this.light[2]
 	};
 	
 	var syncWithUniforms = function() {
-		if( light.lightDirectionX === 0 && light.lightDirectionY === 0 && light.lightDirectionZ === 0 ) {
+		if( light.Fog_Effect === 0 && light.lightDirectionY === 0 && light.lightDirectionZ === 0 ) {
 			light.lightDirectionY = -1;
 		}
 		this.light = MDN.normalize([
-			light.lightDirectionX,
+			light.Fog_Effect,
 			light.lightDirectionY,
 			light.lightDirectionZ
 		]);
-		light.lightDirectionX = this.light[0];
+		light.Fog_Effect = this.light[0];
 		light.lightDirectionY = this.light[1];
 		light.lightDirectionZ = this.light[2];
 		
   }.bind(this);
   
   var syncWithFog = function() {
-    a = (0.0) - light.lightDirectionX
-    b = (0.4) - light.lightDirectionX
-    c = (0.7) - light.lightDirectionX
-    d = (1.0) - light.lightDirectionX
+    a = (0.0) - light.Fog_Effect
+    b = (0.4) - light.Fog_Effect
+    c = (0.7) - light.Fog_Effect
+    d = (1.0) - light.Fog_Effect
     if(a < 0.0){
       a = 0.0;
     }
@@ -354,7 +354,7 @@ BunnyDemo.prototype.addDatGui = function() {
 	
 	var gui = new dat.GUI();
 
-	gui.add(light, "lightDirectionX").min(0).max(1).onChange(syncWithFog);
+	gui.add(light, "Fog_Effect").min(0).max(1).onChange(syncWithFog);
 
 };
 
