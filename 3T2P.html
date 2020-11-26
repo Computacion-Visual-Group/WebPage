@@ -73,6 +73,8 @@
 		uniform float specularAmount;
 		uniform float specularShininess;
 		
+		
+
 		// The lights
 		uniform vec3 light;
 		
@@ -104,12 +106,15 @@
 			)
 		  );
 		  
+		  float d = length ( light - vPosition );
+		  float Attenuation = clamp( 10.0 / d, 0.0, 1.0);
+
 		  // Calculate the brightness of the surface using the lambertian lighting model
 		  float lightDotProduct = dot( normalize(vNormal), light );
 		  float surfaceBrightness = max( 0.0, lightDotProduct );
 		  
 		  // Multiply together all of the various light values
-		  gl_FragColor = vec4(color.xyz * surfaceBrightness + specularColor.xyz * specularBrightness, color.w);
+		  gl_FragColor =  vec4(Attenuation * (color.xyz * surfaceBrightness + specularColor.xyz * specularBrightness), color.w);
 		  
 		}
 	  </script>
@@ -134,7 +139,7 @@
 		<div class="container">
 			<div class="row justify-content-center mb-5">
 				<div class="col-md-7 heading-section text-center ftco-animate">
-					<h2>Title 1</h2>
+					<h2>light Attenuation & ambient, diffuse and specular</h2>
 				</div>
 			</div>
 			<div class="row d-flex">

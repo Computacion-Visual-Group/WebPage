@@ -82,7 +82,6 @@ function BunnyDemo () {
     this.specularColor     = [1.0, 1.0, 1.0, 1.0];
     this.specularAmount    = 0.5;
     this.specularShininess = 50;
-    
     this.light = MDN.normalize([-0.5, 1.0, 1.0]);
     
     //These matrices don't change and only need to be computed once
