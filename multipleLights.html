@@ -78,6 +78,7 @@
 		uniform vec3 light2;
 		uniform vec3 light3;
 		
+		
 		// The values passed down from the vertex shader
 		varying vec3 vNormal;
 		varying vec3 vPosition;
@@ -107,7 +108,8 @@
 		  );
 		  
 		  // Calculate the brightness of the surface using the lambertian lighting model
-		  float lightDotProduct = dot( normalize(vNormal), light );
+		  
+		  float lightDotProduct = dot( vNormal, light);
 		  float surfaceBrightness = max( 0.0, lightDotProduct );
 		  
 		  // Multiply together all of the various light values
@@ -136,13 +138,11 @@
 		<div class="container">
 			<div class="row justify-content-center mb-5">
 				<div class="col-md-7 heading-section text-center ftco-animate">
-					<h2>light Attenuation & ambient, diffuse and specular</h2>
+					<h2>Multiple Lights</h2>
 				</div>
 			</div>
 			<div class="row d-flex">
-				<div class="col-md-1 d-flex ftco-animate">
-					
-				</div>
+				
 
 				<div class="col-md-12 d-flex ftco-animate">
 					<!-- Aqui poner imagens y explicación.-->
@@ -150,25 +150,8 @@
 					<div class="row">
 						<div class="col-1"></div>
 						<div class="col"><p style="color: black;">
-							<style>
-								code {
-								  font-family: Consolas,"courier new";
-								  color: crimson;
-								  background-color: #f1f1f1;
-								  padding: 2px;
-								  font-size: 105%;
-								}
-								</style>
-								<h3>Light Attenuation</h3>
-							<code>to_light = u_Light_position - v_Vertex;<br>
-								d = length( to_light );<br>
-								attenuation = clamp( 10.0 / d, 0.0, 1.0);<br>
-								// ...<br>
-								color = attenuation * (ambient_color + diffuse_color + specular_color);</code></p>
-								<h3>Phong reflection model</h3>
-								<img src="images/Specular.png" alt="Box Blur">
-								<br><p>La reflexión de Phong es un modelo empírico de iluminación local. Describe la forma en que una superficie refleja la luz como una combinación de la reflexión difusa de las superficies rugosas con la reflexión especular de las superficies brillantes. Se basa en la observación informal de Phong de que las superficies brillantes tienen pequeños reflejos especulares intensos, mientras que las superficies opacas tienen grandes reflejos que se caen de forma más gradual. El modelo también incluye un término ambiental para dar cuenta de la pequeña cantidad de luz que se dispersa en toda la escena.</p>
-						</div>
+						<!--	<br><p>Se integraron varias luces direccionales en diferentes posiciones del entorno de la figura, cada una de estas fue generada como un vector, las cuales se multiplicaron entre ellas generando un vector de luces que finalmente realizar un producto punto con el vector normal normalizado para generar el efecto de reflejo en la figura.</p>
+					-->	</div>
 						<div class="col-1"></div>
 					</div>	
 					<div class="row" style="margin-bottom: 10px;">
