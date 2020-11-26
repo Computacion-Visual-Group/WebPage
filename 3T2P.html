@@ -153,7 +153,24 @@
 					<div class="row">
 						<div class="col-1"></div>
 						<div class="col"><p style="color: black;">
-							Description</p>
+							<style>
+								code {
+								  font-family: Consolas,"courier new";
+								  color: crimson;
+								  background-color: #f1f1f1;
+								  padding: 2px;
+								  font-size: 105%;
+								}
+								</style>
+								<h3>Light Attenuation</h3>
+							<code>to_light = u_Light_position - v_Vertex;<br>
+								d = length( to_light );<br>
+								attenuation = clamp( 10.0 / d, 0.0, 1.0);<br>
+								// ...<br>
+								color = attenuation * (ambient_color + diffuse_color + specular_color);</code></p>
+								<h3>Phong reflection model</h3>
+								<img src="images/Specular.png" alt="Box Blur">
+								<br><p>La reflexión de Phong es un modelo empírico de iluminación local. Describe la forma en que una superficie refleja la luz como una combinación de la reflexión difusa de las superficies rugosas con la reflexión especular de las superficies brillantes. Se basa en la observación informal de Phong de que las superficies brillantes tienen pequeños reflejos especulares intensos, mientras que las superficies opacas tienen grandes reflejos que se caen de forma más gradual. El modelo también incluye un término ambiental para dar cuenta de la pequeña cantidad de luz que se dispersa en toda la escena.</p>
 						</div>
 						<div class="col-1"></div>
 					</div>	
